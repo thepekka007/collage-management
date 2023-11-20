@@ -1,0 +1,103 @@
+
+{% extends 'navbarhome.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+#one {
+  min-height: 100vh;
+  background-image: linear-gradient(75deg, rgb(6 6 6 / 64%) 8%, transparent),
+    url('{% static "images\vbgg.jpg" %}');
+  background-position: center;
+  background-size: cover;
+}
+#six {
+  background: url('{% static "images\pvidya.png" %}');
+  background-position: top;
+  background-attachment: fixed;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 80px 3%;
+}
+.card{
+        
+        opacity: 1    ;
+        background-color: rgba(36, 31, 1, 0.582);
+       
+    
+
+}
+</style>
+
+
+<body>  
+
+    <div class="card" style="width: 26rem; margin-left: 40%;margin-top: 0%;color: rgba(248, 248, 248, 0.987)">
+       
+        <div class="card-body">
+          <h2 class="card-title" ><span><b> Teacher Registration </b></span></h2><br>
+          <div class="container">
+            {% for message in messages %}
+          <h5>
+            <div class="alert alert-danger mt-4" style="background-color: rgba(40, 2, 2, 0.979);color: aliceblue;" >
+                {{ message }}
+            </div>
+          </h5>
+          {%  endfor %}
+        </div>
+
+            <form enctype="multipart/form-data"  action="{% url 'updatetec' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="number">First Name   :</label>
+                  <input type="text" class="form-control" id="number" name="frname" value="{{name}}"  placeholder="Enter first name" required><br>
+                  <label for="number">Last Name   :</label>
+                  <input type="text" class="form-control" id="number" name="lrname" value="{{lname}}" placeholder="Enter last name" required><br>
+                  <label for="number">User Name   :</label>
+                  <input type="text" class="form-control" id="number" name="urname" value="{{username}}" placeholder="Enter  user name" required><br>
+                <label for="number"> Address   :</label>
+                  <input type="text" class="form-control" id="number" name="address"value="{{address}}" placeholder="Enter  Address" required><br>
+                  
+                  <label for="number">Age:</label>
+                  <input type="number" class="form-control" id="number" name="age" value="{{age}}" placeholder="Enter Age" required><br>
+                  <label for="number">Email Address   :</label>
+                  <input type="email" class="form-control" id="number" name="email" value="{{mail}}" placeholder="Enter  Email Address" required><br>
+                  <label for="number">Contact number:</label>
+                  <input type="text" class="form-control" id="number" name="phn" value="{{qual}}" placeholder="Enter Contact number" required><br>
+                  <img src="{{photo.url}}" alt="" width="200">
+                  <label for="number">Profile image:</label>
+                  <input type="file" class="form-control" id="number" name="image" accept="image/*" placeholder="Enter Password" ><br>
+                  <label for="number">Course:</label>
+                  <div class="form-group row">
+                    
+                    <select name="cours" class="form-control">
+                        <option value="{{co}}" selected>{{cor}}</option>
+                        {% for i in course %}
+                        <option value="{{i.id}}">{{i.coursename}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+              <!-- <select class="form-control" name="sel">
+          
+                  <option value="BSC">BSC</option>
+                  <option value="+2">+2</option>
+                  <option value="SSLC">SSLC</option>
+                  <option value="diploma">DiPLOMA</option>
+                 
+
+              </select>
+            -->
+          </div>
+          <button type="submit" class="btn btn-primary" id="calculate">Submit</button>
+            </form>
+        </div>
+    </div>
+ 
+</body>
+{% endblock %}

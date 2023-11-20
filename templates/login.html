@@ -1,0 +1,70 @@
+
+{% extends 'navbarhomelogin.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+#one {
+  min-height: 100vh;
+  background-image: linear-gradient(75deg, rgb(6 6 6 / 64%) 8%, transparent),
+    url('{% static "images\vbgg.jpg" %}');
+  background-position: center;
+  background-size: cover;
+}
+#six {
+  background: url('{% static "images\pvidya.png" %}');
+  background-position: top;
+  background-attachment: fixed;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 80px 3%;
+}
+.card{
+        
+        opacity: 1    ;
+        background-color: rgba(36, 31, 1, 0.582);
+}
+</style>
+
+
+<body>  
+
+    <div class="card" style="width: 26rem; margin-left: 40%;margin-top: 5%;color: rgba(245, 245, 245, 0.987)">
+       
+        <div class="card-body">
+          <h2 class="card-title" ><span><b> <span href="#">  <img  src="{% static 'images\vilogo.png' %}" alt="VAST"  ></span>Login </b></span></h2><br>
+          <div class="container">
+            {% for message in messages %}
+          <h5>
+            <div class="alert alert-danger mt-4" style="background-color: rgba(0, 0, 0, 0.446);color: aliceblue;" >
+                {{ message }}
+            </div>
+          </h5>
+          {%  endfor %}
+        </div>
+      
+            <form  action="{% url 'login2' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                  
+                    <label for="number">User Name :</label>
+                        <input type="text" class="form-control" id="number" name="uname" placeholder="Enter User name" required><br>
+                     
+                        <label for="number">Password:</label>
+                        <input type="password" class="form-control" id="number" name="password"  placeholder="Enter Password" required><br>
+                  
+                </div>
+                <button type="submit" class="btn btn-primary" id="calculate">Login</button>
+                <br>
+                New member??.<a href="{% url 'reg' %}" style="color: aqua;"> Sign Up</a>
+            </form>
+        </div>   
+    </div>
+ 
+</body>
+{% endblock %}

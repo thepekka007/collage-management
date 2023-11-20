@@ -1,0 +1,259 @@
+
+{% extends 'navbarhomelogin.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+#one {
+  min-height: 100vh;
+  background-image: linear-gradient(75deg, rgb(6 6 6 / 64%) 8%, transparent),
+    url('{% static "images\vbgg.jpg" %}');
+  background-position: center;
+  background-size: cover;
+}
+#six {
+  background: url('{% static "images\pvidya.png" %}');
+  background-position: top;
+  background-attachment: fixed;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 80px 3%;
+}
+.card{
+        
+        opacity: 1    ;
+        background-color: rgba(36, 31, 1, 0.582);
+       
+    
+
+}
+</style>
+
+
+<body>  
+
+  <!-- <section class="h-100 h-custom gradient-custom-2">
+    <div class="container">
+      {% for message in messages %}
+    <h5>
+      <div class="alert alert-danger mt-4" style="background-color: rgba(40, 2, 2, 0.979);color: aliceblue;" >
+          {{ message }}
+      </div>
+    </h5>
+    {%  endfor %}
+  </div>
+    <form enctype="multipart/form-data"  action="{% url 'addteacher' %}" method="post">
+      {% csrf_token %}
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12">
+          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+            <div class="card-body p-0">
+              <div class="row g-0">
+                
+                <div class="col-lg-6">
+                  <div class="p-5">
+                    <h3 class="fw-normal mb-5" style="color: #4835d4;">Teacher Registration</h3>
+                   
+                    <div class="mb-4 pb-2">
+                    
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-lg-6 bg-indigo text-white">
+                  <div class="p-5">
+                    <h3 class="fw-normal mb-5"></h3>
+  
+                    <div class="row">
+                      <div class="col-md-5 mb-4 pb-2">
+  
+                        <div class="form-outline form-white">
+                          <input type="text" id="form3Examplea4" name="frname" placeholder="Enter first name" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea4">First Name</label>
+                        </div>
+  
+                      </div>
+                      <div class="col-md-7 mb-4 pb-2">
+  
+                        <div class="form-outline form-white">
+                          <input type="text" id="form3Examplea5" name="lrname" placeholder="Enter last name" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea5">Last Name</label>
+                        </div>
+  
+                      </div>
+                    </div>
+  
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline form-white">
+                        <input type="text" id="form3Examplea3"  name="urname" placeholder="Enter  user name" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplea3">User Name</label>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-md-5 mb-4 pb-2">
+  
+                        <div class="form-outline form-white">
+                          <input type="text" id="form3Examplea4" name="age" placeholder="Enter Age" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea4">Age</label>
+                        </div>
+  
+                      </div>
+                      <div class="col-md-7 mb-4 pb-2">
+  
+                        <div class="form-outline form-white">
+                          <input type="text" id="form3Examplea5" name="email" placeholder="Enter  Email Address" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea5">Email</label>
+                        </div>
+  
+                      </div>
+                    </div>
+  
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline form-white">
+                        <input type="text" id="form3Examplea6"  name="address" placeholder="Enter  Address" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplea6">Address</label>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-md-5 mb-4 pb-2">
+  
+                        <div class="form-outline form-white">
+                          <input type="text" id="form3Examplea7" name="password" placeholder="Enter  password" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea7">Password</label>
+                        </div>
+  
+                      </div>
+                      <div class="col-md-7 mb-4 pb-2">
+  
+                        <div class="form-outline form-white">
+                          <input type="text" id="form3Examplea8" name="cpassword" placeholder="Enter  Password again" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea8">Repeat Passwords</label>
+                        </div>
+  
+                      </div>
+                    </div>
+  
+                    <div class="mb-4">
+                      <div class="form-outline form-white">
+                        <input type="text" id="form3Examplea9"  name="phn" placeholder="Enter Contact number" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplea9">Phone Number</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-5 mb-4 pb-2">
+  
+                        <div class="form-outline form-white">
+                          <input type="file" id="form3Examplea4"  name="image" accept="image/*" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea4">Select Image</label>
+                        </div>
+  
+                      </div>
+                      <div class="col-md-7 mb-4 pb-2">
+  
+                        <div class="form-outline form-white">
+                          <select class="form-control" name="sel">
+                            {% for c in course %}
+                            <option value="">-select-</option>
+                            <option value="{{c.id}}">{{c.course_name}}</option>
+                            {% endfor %}
+        
+                        </select>
+                          <label class="form-label" for="form3Examplea5"> Select Course</label>
+                        </div>
+  
+                      </div>
+                    </div>
+                    
+                    <div class="form-check d-flex justify-content-start mb-4 pb-3">
+                      <input class="form-check-input me-3" type="checkbox" value="" id="form2Example3c" />
+                      <label class="form-check-label text-white" for="form2Example3">
+                        I do accept the <a href="#!" class="text-white"><u>Terms and Conditions</u></a> of your
+                        site.
+                      </label>
+                    </div>
+                 
+                    
+                    <button type="button" class="btn btn-light btn-lg"
+                      data-mdb-ripple-color="dark">Register</button>
+  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+  </section> -->
+    <div class="card" style="width: 26rem; margin-left: 40%;margin-top: 0%;color: rgba(248, 248, 248, 0.987)">
+       
+        <div class="card-body">
+          <h2 class="card-title" style="padding-left: 100px;" ><span><b> <span href="#">  <img  src="{% static 'images\vilogo.png' %}" alt="VAST"  ></span> Registration </b></span></h2><br>
+          <!-- <h2 class="card-title" ><span><b> </b></span></h2><br> -->
+          <div class="container">
+            {% for message in messages %}
+          <h5>
+            <div class="alert alert-danger mt-4" style="background-color: rgba(40, 2, 2, 0.979);color: aliceblue;" >
+                {{ message }}
+            </div>
+          </h5>
+          {%  endfor %}
+        </div>
+
+
+
+            <form enctype="multipart/form-data"  action="{% url 'addteacher' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="number">First Name   :</label>
+                  <input type="text" class="form-control" id="number" name="frname" placeholder="Enter first name" required><br>
+                  <label for="number">Last Name   :</label>
+                  <input type="text" class="form-control" id="number" name="lrname" placeholder="Enter last name" required><br>
+                  <label for="number">User Name   :</label>
+                  <input type="text" class="form-control" id="number" name="urname" placeholder="Enter  user name" required><br>
+                  <label for="number">Password   :</label>
+                  <input type="password" class="form-control" id="number" name="password" placeholder="Enter  password" required><br>
+                  <label for="number">Confirm Password  :</label>
+                  <input type="password" class="form-control" id="number" name="cpassword" placeholder="Enter  Password again" required><br>
+                  <label for="number"> Address   :</label>
+                  <input type="text" class="form-control" id="number" name="address" placeholder="Enter  Address" required><br>
+                  </div>
+                  
+                  <div class="form-group">
+                  <label for="number">Age:</label>
+                  <input type="number" class="form-control" id="number" name="age" placeholder="Enter Age" required><br>
+                  <label for="number">Email Address   :</label>
+                  <input type="email" class="form-control" id="number" name="email" placeholder="Enter  Email Address" required><br>
+                  <label for="number">Contact number:</label>
+                  <input type="text" class="form-control" id="number" name="phn" placeholder="Enter Contact number" required><br>
+                  <label for="number">Profile image:</label>
+                  <input type="file" class="form-control" id="number" name="image" accept="image/*" placeholder="Enter Password" ><br>
+                  <label for="number">Course:</label>
+                  <select class="form-control" name="sel">
+                    {% for c in course %}
+                    <option value="">-select-</option>
+                    <option value="{{c.id}}">{{c.course_name}}</option>
+                    {% endfor %}
+
+                </select>
+              
+           
+          </div>
+          <button type="submit" class="btn btn-primary" id="calculate">Submit</button>
+          <br>
+                Already a member??.<a href="{% url 'login1' %}" style="color: aqua;"> Sign in</a>
+            </form>
+        </div>
+    </div>
+  
+</body>
+{% endblock %}

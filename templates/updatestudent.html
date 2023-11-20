@@ -1,0 +1,68 @@
+
+{% extends 'navbarhomeadmin.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<style>
+#one {
+  min-height: 100vh;
+  background-image: linear-gradient(75deg, rgb(6 6 6 / 64%) 8%, transparent),
+    url('{% static "images\vbgg.jpg" %}');
+  background-position: center;
+  background-size: cover;
+}
+#six {
+  background: url('{% static "images\pvidya.png" %}');
+  background-position: top;
+  background-attachment: fixed;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 80px 3%;
+}
+.card{
+        
+        opacity: 1    ;
+        background-color: rgba(36, 31, 1, 0.582);
+}
+</style>
+
+
+<body>  
+
+    <div class="card" style="width: 26rem; margin-left: 40%;margin-top: 5%;color: rgb(253, 253, 253);">
+       
+        <div class="card-body">
+          <h2 class="card-title" style="padding-left:30%  ;" ><span><b>Add Student </b></span></h2><br>
+            <form  action="{% url 'updatestd' prd.id%}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="number"> Name   :</label>
+                    <input type="text" class="form-control" id="number" name="name" value="{{prd.student_name}}" placeholder="Enter  name" required><br>
+                    <label for="number"> Address   :</label>
+                    <input type="text" class="form-control" id="number" name="address" value="{{prd.address}}" placeholder="Enter  Address" required><br>
+                    
+                    <label for="number">Age:</label>
+                    <input type="number" class="form-control" id="number" name="age" value="{{prd.age}}" placeholder="Enter Age" required><br>
+                    <label for="number">Date of Joining:</label>
+                    <input type="date" class="form-control" id="number" name="date" value="{{prd.jdate|date:'Y-m-d'}}" placeholder="Enter Age" required><br>
+                    <select name="course" class="form-control" >
+            
+                      <option value="">-select-</option>
+                      {% for i in c %}
+                      {% if i.id == prd.course_id %}
+                      <option value="{{i.id}}" selected>{{i.course_name}}</option>
+                      {% else %}
+                      <option value="{{i.id}}">{{i.course_name}}</option>
+                      {% endif %}
+                      {% endfor %}
+                  </select>
+                 
+                </div>
+                <button type="submit" class="btn btn-primary" id="calculate">Submit</button>
+            </form>
+        </div>
+    </div>
+ 
+</body>
+{% endblock %}

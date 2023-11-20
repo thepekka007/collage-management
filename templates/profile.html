@@ -1,0 +1,62 @@
+
+{% extends 'navbarhome.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+#one {
+  min-height: 100vh;
+  background-image: linear-gradient(75deg, rgb(6 6 6 / 64%) 8%, transparent),
+    url('{% static "images\vbgg.jpg" %}');
+  background-position: center;
+  background-size: cover;
+}
+#six {
+  background: url('{% static "images\pvidya.png" %}');
+  background-position: top;
+  background-attachment: fixed;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 80px 3%;
+}
+.card{
+        
+        opacity: 1    ;
+        background-color: rgba(36, 31, 1, 0.582);
+       
+    
+
+}
+</style>
+
+
+<body>  
+
+    
+    <div class="card" style="width: 26rem; margin-left: 40%;margin-top: 5%;color: rgb(229, 227, 237);">
+                           <img class="card-img-top" src="{{image.url}}" style="height: 220px;" alt="Card image cap">
+        <!-- <img class="card-img-top" src="" style="height: 270px;" alt="Card image cap"> -->
+        <div class="card-body">
+          <h2 class="card-title" style="padding-left: 35%;"><span><b>{{name}}</b></span></h2><br>
+          <p class="card-text">First Name:&nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{name}}</p>
+          <p class="card-text">Last Name:&nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{lname}}</p>
+          <p class="card-text">User Name:&nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{username}}</p>
+          <p class="card-text">Address:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{address}}</p>
+          <p class="card-text">Email:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{mail}}</p>
+          <p class="card-text">Age :&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {{age}}</p>
+          <p class="card-text">Phone Number :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{qual}}</p>
+          
+          
+          <p class="card-text">Course:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{cor}}</p>
+        
+        </div>
+      </div>
+   
+
+</body>
+{% endblock %}
